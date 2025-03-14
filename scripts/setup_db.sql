@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS ToDelete;
-CREATE DATABASE IF NOT EXISTS ToDelete;
+CREATE DATABASE IF NOT EXISTS DockerComposeExample;
 CREATE USER IF NOT EXISTS 'installer'@'%' IDENTIFIED BY 'N0Pa55wrd';
-GRANT ALL ON ToDelete.* TO 'installer'@'%';
+GRANT ALL ON DockerComposeExample.* TO 'installer'@'%';
 FLUSH PRIVILEGES;

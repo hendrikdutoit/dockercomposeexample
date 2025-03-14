@@ -1,0 +1,23 @@
+# docker-compose-standard.yaml
+name: ${PROJECT_NAME}_standard
+
+services:
+  web:
+    container_name: "web-1"
+    build:
+      context:    .
+      dockerfile: Dockerfile
+    ports:
+      - "8001:5000"
+    develop:
+      watch:
+        - action: sync
+          path:   .
+          target: /app
+  redis:
+    container_name: "redis-1"
+    image:          "redis:alpine"
+    networks:
+      default:
+        aliases:
+          - redis

@@ -1,0 +1,18 @@
+# docker-compose-include.yaml
+name: ${PROJECT_NAME}_multifile
+include:
+  - docker-compose-redis-3.yaml
+
+services:
+  web:
+    container_name: "web-3"
+    build:
+      context:    .
+      dockerfile: Dockerfile
+    ports:
+      - "8003:5000"
+    develop:
+      watch:
+        - action: sync
+          path:   .
+          target: /app
