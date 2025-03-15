@@ -42,8 +42,10 @@ if (-not $Pester) {
     }
     else {
         $DockerConfigFileName = "docker-compose.yaml"
+        $DockerName = $env:PROJECT_NAME.ToLower()
         if ($Variant) {
             $DockerConfigFileName = "docker-compose-$Variant.yaml"
+            $DockerName = "$env:PROJECT_NAME".ToLower() + "_$Variant"
         }
         if (Test-Path $DockerConfigFileName) {
             & ./CreateDbSqlScript.ps1
@@ -51,8 +53,8 @@ if (-not $Pester) {
             docker compose -f $DockerConfigFileName rm --force
             docker volume prune -a  --force
             docker builder prune --force
-            docker compose -f $DockerConfigFileName create
-            docker compose -f $DockerConfigFileName start
+            docker compose -p $DockerName -f $DockerConfigFileName create
+            docker compose -p $DockerName -f $DockerConfigFileName start
         }
         else {
             Write-Host "The $DockerConfigFileName does not exist!" -ForegroundColor Red

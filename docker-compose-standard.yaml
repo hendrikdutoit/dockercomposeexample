@@ -1,5 +1,5 @@
 # docker-compose-standard.yaml
-name: dockercomposeexample_standard
+#name: dockercomposeexample_standard
 
 services:
   web:

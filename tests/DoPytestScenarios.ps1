@@ -6,6 +6,7 @@ docker compose -f docker-compose-multifile.yaml down -v
 docker compose -f docker-compose-multifile.yaml rm --force
 docker volume prune -a  --force
 docker builder prune --force
-docker-compose -f docker-compose-multifile.yaml -f docker-compose-redis-3.yaml up -d
+$DockerName = "$env:PROJECT_NAME".ToLower() + "_multifile"
+docker-compose -p $DockerName $env:PROJECT_NAME_-f docker-compose-multifile.yaml -f docker-compose-redis-3.yaml up -d
 
 pytest

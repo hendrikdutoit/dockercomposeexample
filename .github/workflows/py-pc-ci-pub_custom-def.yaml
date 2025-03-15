@@ -87,4 +87,6 @@ jobs:
           slug:             BrightEdgeeServices/PythonTemplateIt
       - name: Tear down Docker Compose
         if:   always()
-        run:  docker-compose -f docker-compose.yaml down
+        run:  |
+              docker-compose -f docker-compose-standard.yaml down
+              docker-compose -f docker-compose-multifile.yaml down

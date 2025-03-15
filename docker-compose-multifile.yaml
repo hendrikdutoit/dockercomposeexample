@@ -1,8 +1,5 @@
 # docker-compose-include.yaml
-name: dockercomposeexample_multifile
-include:
-  - docker-compose-redis-3.yaml
-
+#name: dockercomposeexample_multifile
 services:
   web:
     container_name: "web-3"

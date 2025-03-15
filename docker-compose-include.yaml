@@ -1,5 +1,5 @@
 # docker-compose-include.yaml
-name: dockercomposeexample_include
+#name: dockercomposeexample_include
 include:
   - docker-compose-redis-2.yaml
 
