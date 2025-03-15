@@ -1,5 +1,5 @@
 # docker-compose-include.yaml
-name: ${PROJECT_NAME}_multifile
+name: dockercomposeexample_multifile
 include:
   - docker-compose-redis-3.yaml
 
