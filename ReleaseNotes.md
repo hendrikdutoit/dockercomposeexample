@@ -2,7 +2,7 @@
 
 ## General Changes
 
-- Initial setup and configuration.
+-
 
 ______________________________________________________________________
 
