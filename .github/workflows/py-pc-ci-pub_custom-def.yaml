@@ -67,9 +67,9 @@ jobs:
       - name: Start Docker Compose
         run:  |
               DockerName="${PROJECT_NAME,,}_standard"
-              docker-compose p $DockerName -f docker-compose-standard.yaml up -d
+              docker-compose -p $DockerName -f docker-compose-standard.yaml up -d
               DockerName="${PROJECT_NAME,,}_multifile"
-              docker-compose -f docker-compose-multifile.yaml up -d
+              docker-compose -p $DockerName -f docker-compose-multifile.yaml up -d
 
       - name: Wait for services to be ready
         run:  |
