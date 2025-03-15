@@ -1,0 +1,13 @@
+# docker-compose-include.yaml
+#name: dockercomposeexample_include
+include:
+  - docker-compose-redis-2.yaml
+
+services:
+  web:
+    container_name: "web-2"
+    build:
+      context:    .
+      dockerfile: Dockerfile
+    ports:
+      - "8002:5000"

@@ -1,0 +1,27 @@
+# py-temp-pypi-pub_custom_ci-def.yaml
+# This is a template and should not be changed unless you are familiar with the
+# reusable GitHub Actions strategy of the company.
+name: Default Custom PyPI Pipeline
+
+on:
+  push:
+
+jobs:
+  Pre-Commit:
+    uses:    RealTimeEvents/devops-automation/.github/workflows/py-pc-precom-def.yaml@master
+    secrets: inherit
+
+  CI:
+    uses:    ./.github/workflows/py-pc-ci-pub_custom-def.yaml
+    secrets: inherit
+
+  Build-and-Publish-to-PyPI:
+    permissions:
+      id-token: write
+      contents: write
+    if:      startsWith(github.ref, 'refs/tags/')
+    needs:
+      - Pre-Commit
+      - CI
+    uses:    RealTimeEvents/devops-automation/.github/workflows/py-pc-pypi-default.yaml@master
+    secrets: inherit
