@@ -1,4 +1,4 @@
-# py-temp-pypi-pub_with_docker-def.yaml
+# py-temp-pypi-pub_custom_ci-def.yaml
 # This is a template and should not be changed unless you are familiar with the
 # reusable GitHub Actions strategy of the company.
 name: Python Template PyPI Public with-Docker
@@ -12,7 +12,7 @@ jobs:
       id-token: write
       contents: write
     #    if: github.event.pull_request.merged == true
-    uses: RealTimeEvents/devops-automation/.github/workflows/py-wf-pypi-pub_with_docker-def.yaml@master
+    uses: RealTimeEvents/devops-automation/.github/workflows/py-wf-pypi-pub_custon_ci-def.yaml@master
     with:
       run_deploy: ${{ startsWith(github.ref, 'refs/tags/') == true }}
     # secrets: inherit
