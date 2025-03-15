@@ -70,7 +70,7 @@ jobs:
               echo $DockerName
               docker-compose -p $DockerName -f ./docker-compose-standard.yaml up -d
               DockerName="${PROJECT_NAME,,}_multifile"
-              docker-compose -p $DockerName -f ./docker-compose-multifile.yaml up -d
+              docker-compose -p $DockerName -f ./docker-compose-multifile.yaml -f docker-compose-redis-3.yaml up -d
 
       - name: Wait for services to be ready
         run:  |
