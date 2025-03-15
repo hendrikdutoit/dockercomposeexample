@@ -9,11 +9,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8001:5000"
-    develop:
-      watch:
-        - action: sync
-          path:   .
-          target: /app
   redis:
     container_name: "redis-1"
     image:          "redis:alpine"

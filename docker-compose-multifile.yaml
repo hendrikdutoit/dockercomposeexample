@@ -11,8 +11,3 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8003:5000"
-    develop:
-      watch:
-        - action: sync
-          path:   .
-          target: /app
