@@ -1,3 +1,6 @@
+import sys
+
+import pytest
 import requests
 
 
@@ -10,6 +13,7 @@ def test_app_response_standard():
     assert "I have been seen" in response.text
 
 
+@pytest.mark.skipif(not sys.platform.startswith("win"), reason="Include: not valid on Linux")
 def test_app_response_include():
     """Test the application's response."""
     url = "http://localhost:8002/"
